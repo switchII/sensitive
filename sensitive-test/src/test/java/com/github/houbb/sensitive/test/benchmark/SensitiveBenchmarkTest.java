@@ -2,7 +2,6 @@ package com.github.houbb.sensitive.test.benchmark;
 
 import com.alibaba.fastjson.JSON;
 import com.github.houbb.sensitive.core.api.SensitiveUtil;
-import com.github.houbb.sensitive.core.util.strategy.SensitiveStrategyUtil;
 import com.github.houbb.sensitive.test.core.DataPrepareTest;
 import com.github.houbb.sensitive.test.model.sensitive.User;
 import org.junit.Ignore;
@@ -32,27 +31,6 @@ public class SensitiveBenchmarkTest {
         long endTime = System.currentTimeMillis();
 
         System.out.println("fast json " + (endTime-startTime));
-    }
-
-    /**
-     * handle set 122ms
-     */
-    @Test
-    public void handleSetterTest() {
-        User user = DataPrepareTest.buildUser();
-
-        long startTime = System.currentTimeMillis();
-        for(int i = 0; i < COUNT; i++) {
-            User sensitiveUser = new User();
-            sensitiveUser.setUsername(SensitiveStrategyUtil.chineseName(user.getUsername()));
-            sensitiveUser.setPassword(SensitiveStrategyUtil.password(user.getPassword()));
-            sensitiveUser.setEmail(SensitiveStrategyUtil.password(user.getEmail()));
-            sensitiveUser.setIdCard(SensitiveStrategyUtil.cardId(user.getIdCard()));
-            sensitiveUser.setPhone(SensitiveStrategyUtil.phone(user.getPhone()));
-        }
-        long endTime = System.currentTimeMillis();
-
-        System.out.println("handle set " + (endTime-startTime));
     }
 
     /**

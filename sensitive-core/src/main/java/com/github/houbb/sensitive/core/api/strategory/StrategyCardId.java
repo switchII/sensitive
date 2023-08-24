@@ -1,9 +1,6 @@
 package com.github.houbb.sensitive.core.api.strategory;
 
-import com.github.houbb.heaven.util.lang.ObjectUtil;
 import com.github.houbb.sensitive.api.IContext;
-import com.github.houbb.sensitive.api.IStrategy;
-import com.github.houbb.sensitive.core.util.strategy.SensitiveStrategyUtil;
 
 /**
  * 银行卡号脱敏：
